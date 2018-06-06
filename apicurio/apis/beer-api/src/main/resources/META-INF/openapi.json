@@ -72,7 +72,21 @@
     },
     "/breweries/{breweryId}/beers" : {
       "get" : { },
-      "post" : { }
+      "post" : { },
+      "delete" : {
+        "operationId" : "deleteBreweryBeers",
+        "responses" : {
+          "204" : { }
+        }
+      },
+      "parameters" : [ {
+        "name" : "breweryId",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        }
+      } ]
     },
     "/beers" : {
       "get" : {
@@ -121,7 +135,7 @@
       "Beer" : {
         "title" : "Root Type for Beer",
         "description" : "The root of the Beer type's schema.",
-        "required" : [ "abv", "id", "name", "style", "breweryId", "ounces" ],
+        "required" : [ "abv", "id", "name", "style", "breweryId", "ounces", "foo" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -149,6 +163,9 @@
           "ounces" : {
             "format" : "double",
             "type" : "number"
+          },
+          "foo" : {
+            "type" : "string"
           }
         }
       },
@@ -175,10 +192,8 @@
     }
   },
   "tags" : [ {
-    "name" : "beer",
-    "description" : null
+    "name" : "beer"
   }, {
-    "name" : "brewery",
-    "description" : null
+    "name" : "brewery"
   } ]
 }
