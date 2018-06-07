@@ -20,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "name",
     "style",
     "breweryId",
-    "ounces"
+    "ounces",
+    "foo"
 })
 public class Beer {
 
@@ -68,6 +69,13 @@ public class Beer {
      */
     @JsonProperty("ounces")
     private Double ounces;
+    /**
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("foo")
+    private String foo;
 
     /**
      * 
@@ -197,6 +205,26 @@ public class Beer {
     @JsonProperty("ounces")
     public void setOunces(Double ounces) {
         this.ounces = ounces;
+    }
+
+    /**
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("foo")
+    public String getFoo() {
+        return foo;
+    }
+
+    /**
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("foo")
+    public void setFoo(String foo) {
+        this.foo = foo;
     }
 
 }

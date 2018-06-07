@@ -12,28 +12,28 @@ import javax.ws.rs.Path;
 @Path("/breweries")
 public interface Breweries {
   @GET
-  void generatedMethod4();
+  void generatedMethod2();
 
   @POST
-  void generatedMethod5();
+  void generatedMethod3();
 
   @Path("/{breweryId}")
   @GET
-  void generatedMethod6();
+  void generatedMethod4();
 
   @Path("/{breweryId}")
   @PUT
-  void generatedMethod7();
+  void generatedMethod5();
 
   @Path("/{breweryId}")
   @DELETE
-  void generatedMethod8();
+  void generatedMethod6();
 
   @Path("/{breweryId}/beers")
   @GET
-  void generatedMethod9();
+  void generatedMethod7();
 
   @Path("/{breweryId}/beers")
   @POST
-  void generatedMethod10();
+  void generatedMethod8();
 }
