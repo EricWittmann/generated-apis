@@ -12,6 +12,7 @@
   "paths" : {
     "/beers/{beerId}" : {
       "get" : {
+        "operationId" : "getBeer",
         "responses" : {
           "200" : {
             "description" : "A single beer.",
@@ -26,6 +27,7 @@
         }
       },
       "put" : {
+        "operationId" : "updateBeer",
         "requestBody" : {
           "description" : "Updated beer information.",
           "content" : {
@@ -121,7 +123,7 @@
       "Beer" : {
         "title" : "Root Type for Beer",
         "description" : "The root of the Beer type's schema.",
-        "required" : [ "abv", "id", "name", "style", "breweryId", "ounces" ],
+        "required" : [ "abv", "id", "name", "style", "breweryId", "ounces", "foo" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -149,6 +151,9 @@
           "ounces" : {
             "format" : "double",
             "type" : "number"
+          },
+          "foo" : {
+            "type" : "string"
           }
         }
       },
@@ -175,10 +180,8 @@
     }
   },
   "tags" : [ {
-    "name" : "beer",
-    "description" : null
+    "name" : "beer"
   }, {
-    "name" : "brewery",
-    "description" : null
+    "name" : "brewery"
   } ]
 }

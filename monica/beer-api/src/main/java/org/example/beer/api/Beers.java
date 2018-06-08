@@ -19,16 +19,16 @@ public interface Beers {
   @Path("/{beerId}")
   @GET
   @Produces("application/json")
-  Beer generatedMethod1(@PathParam("beerId") int beerId);
+  Beer getBeer(@PathParam("beerId") int beerId);
 
   @Path("/{beerId}")
   @PUT
   @Consumes("application/json")
-  void generatedMethod2(@PathParam("beerId") int beerId, Beer data);
+  void updateBeer(@PathParam("beerId") int beerId, Beer data);
 
   @Path("/{beerId}")
   @DELETE
-  void generatedMethod3(@PathParam("beerId") int beerId);
+  void generatedMethod1(@PathParam("beerId") int beerId);
 
   /**
    * Returns all of the beers in the database.
