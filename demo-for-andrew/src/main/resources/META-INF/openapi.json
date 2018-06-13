@@ -135,7 +135,7 @@
       "Beer" : {
         "title" : "Root Type for Beer",
         "description" : "The root of the Beer type's schema.",
-        "required" : [ "abv", "id", "name", "style", "breweryId", "ounces", "foo" ],
+        "required" : [ "abv", "id", "name", "style", "breweryId", "ounces", "foo", "bar" ],
         "type" : "object",
         "properties" : {
           "id" : {
@@ -166,6 +166,12 @@
           },
           "foo" : {
             "type" : "string"
+          },
+          "bar" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           }
         }
       },

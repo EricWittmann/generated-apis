@@ -1,6 +1,8 @@
 
 package org.example.beer.api.beans;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -21,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "style",
     "breweryId",
     "ounces",
-    "foo"
+    "foo",
+    "bar"
 })
 public class Beer {
 
@@ -76,6 +79,13 @@ public class Beer {
      */
     @JsonProperty("foo")
     private String foo;
+    /**
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("bar")
+    private List<String> bar = new ArrayList<String>();
 
     /**
      * 
@@ -225,6 +235,26 @@ public class Beer {
     @JsonProperty("foo")
     public void setFoo(String foo) {
         this.foo = foo;
+    }
+
+    /**
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("bar")
+    public List<String> getBar() {
+        return bar;
+    }
+
+    /**
+     * 
+     * (Required)
+     * 
+     */
+    @JsonProperty("bar")
+    public void setBar(List<String> bar) {
+        this.bar = bar;
     }
 
 }
