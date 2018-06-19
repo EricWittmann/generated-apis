@@ -54,7 +54,6 @@
           "Basic" : [ ]
         } ]
       },
-      "put" : { },
       "post" : {
         "summary" : "Add a Beer",
         "operationId" : "addBeer",
