@@ -22,9 +22,6 @@ public interface Beers {
   @Produces("application/json")
   List<Beer> getBeers(@QueryParam("style") String style);
 
-  @PUT
-  void generatedMethod1();
-
   @POST
   @Consumes("application/json")
   void addBeer(Beer data);
