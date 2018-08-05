@@ -1,0 +1,345 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Full Beer API",
+    "description" : "The absolute full beer api!",
+    "contact" : {
+      "name" : "Eric Whittmann",
+      "url" : "https://studio.apicur.io",
+      "email" : "eric.wittmann@redhat.com"
+    },
+    "license" : {
+      "name" : "GNU AGPLv3",
+      "url" : "https://www.gnu.org/licenses/agpl.txt"
+    },
+    "version" : "1.0.0"
+  },
+  "paths" : {
+    "/beers/{beerId}" : {
+      "get" : {
+        "summary" : "Get a Beer",
+        "operationId" : "getBeer",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Beer"
+                },
+                "examples" : {
+                  "Example-1" : {
+                    "value" : { }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Update a Beer",
+        "operationId" : "updateBeer",
+        "requestBody" : {
+          "content" : {
+            "application/json" : { }
+          }
+        },
+        "responses" : {
+          "202" : {
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Delete a Beer",
+        "operationId" : "deleteBeer",
+        "responses" : {
+          "204" : { }
+        }
+      },
+      "parameters" : [ {
+        "name" : "beerId",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/breweries" : {
+      "get" : {
+        "summary" : "Get Breweries",
+        "operationId" : "getBreweries",
+        "parameters" : [ {
+          "name" : "city",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "state",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Brewery"
+                  }
+                },
+                "examples" : {
+                  "Example-1" : {
+                    "value" : "[\n    {\n        \"id\": \"value-1\"\n    }\n]"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "summary" : "Add a Brewery",
+        "operationId" : "addBrewery",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Brewery"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/breweries/{breweryId}" : {
+      "get" : {
+        "summary" : "Get a Brewery",
+        "operationId" : "getBrewery",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Brewery"
+                }
+              }
+            }
+          },
+          "404" : {
+            "content" : {
+              "application/json" : { },
+              "application/xml" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "Update a Brewery",
+        "operationId" : "updateBrewery",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Brewery"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "202" : { }
+        }
+      },
+      "delete" : {
+        "summary" : "Delete a Brewery",
+        "operationId" : "deleteBrewery",
+        "responses" : {
+          "204" : { }
+        }
+      },
+      "parameters" : [ {
+        "name" : "breweryId",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/breweries/{breweryId}/beers" : {
+      "get" : {
+        "summary" : "Get Beers from Brewery",
+        "operationId" : "getBreweryBeers",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Beer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters" : [ {
+        "name" : "breweryId",
+        "in" : "path",
+        "required" : true,
+        "schema" : {
+          "format" : "int32",
+          "type" : "integer"
+        }
+      } ]
+    },
+    "/beers" : {
+      "get" : {
+        "summary" : "Get Beers",
+        "operationId" : "getBeers",
+        "parameters" : [ {
+          "name" : "style",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Beer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "summary" : "Add a Beer",
+        "operationId" : "addBeer",
+        "requestBody" : {
+          "content" : {
+            "application/json" : { }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "201" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : { }
+                }
+              }
+            }
+          }
+        }
+      },
+      "servers" : [ {
+        "url" : "https://just/trying.com",
+        "description" : ""
+      } ]
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Beer" : {
+        "title" : "Root Type for Beer",
+        "description" : "The root of the Beer type's schema.",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "breweryId" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "style" : {
+            "type" : "string"
+          },
+          "ibu" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "ounces" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "abv" : {
+            "format" : "int32",
+            "type" : "integer"
+          }
+        }
+      },
+      "Brewery" : {
+        "title" : "Root Type for Brewery",
+        "description" : "The root of the Brewery type's schema.",
+        "type" : "object",
+        "properties" : {
+          "city" : {
+            "type" : "string"
+          },
+          "state" : {
+            "type" : "string"
+          },
+          "id" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "ffff" : {
+        "type" : "http",
+        "scheme" : "basic"
+      }
+    }
+  },
+  "tags" : [ {
+    "name" : "Foo",
+    "description" : "This is bar."
+  } ]
+}
